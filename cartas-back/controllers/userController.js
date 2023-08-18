@@ -11,9 +11,13 @@ async function login(req, res) {
   let user;
 
   if (isEmailImput) {
-    user = await User.findOne({ email: req.body.username });
+    user = await User.findOne({ email: req.body.username })
+      .populate("team")
+      .populate("unlockedCards");
   } else {
-    user = await User.findOne({ username: req.body.username });
+    user = await User.findOne({ username: req.body.username })
+      .populate("team")
+      .populate("unlockedCards");
   }
   if (!user) {
     return res.json("Credenciales invalidas 1");
@@ -29,6 +33,8 @@ async function login(req, res) {
       username: user.username,
       email: user.email,
       avatar: user.avatar,
+      unlockedCards: user.unlockedCards,
+      team: user.team,
     });
   }
 }
@@ -73,6 +79,8 @@ async function store(req, res) {
         username: user.username,
         email: user.email,
         avatar: user.avatar,
+        unlockedCards: user.unlockedCards,
+        team: user.team,
       });
     }
   } else {
@@ -84,7 +92,20 @@ async function store(req, res) {
 async function edit(req, res) {}
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function updateTeam(req, res) {
+  try {
+    const user = await User.findById(req.auth.id);
+    if (user.team.includes(req.params.id)) {
+      user.team.pull(req.params.id);
+    } else {
+      user.team.push(req.params.id);
+    }
+    await user.save();
+    res.status(200).json({ message: "toggle team succesfull" });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {}
@@ -99,6 +120,6 @@ module.exports = {
   create,
   store,
   edit,
-  update,
+  updateTeam,
   destroy,
 };

@@ -4,9 +4,7 @@ const Card = require("../models/Card");
 
 // Display a listing of the resource.
 async function index(req, res) {
-  console.log("Entra a index de cards");
   try {
-    console.log("entra al find de Cards");
     const cards = await Card.find();
     return res.json(cards);
   } catch (error) {

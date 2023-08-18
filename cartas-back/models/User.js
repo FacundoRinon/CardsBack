@@ -10,13 +10,24 @@ const userSchema = new Schema(
     username: { type: String, required: true, unique: true },
     avatar: { type: String, required: true },
     password: { type: String, required: true },
-    // collection: [{ type: Schema.Types.ObjectId, ref: "Card" }],
-    // team: [{ type: Schema.Types.ObjectId, ref: "Card" }],
+    unlockedCards: [{ type: Schema.Types.ObjectId, ref: "Card" }],
+    team: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Card",
+        // validate: {
+        //   validator: function (array) {
+        //     return array.length <= 3; // Define la condición de validación
+        //   },
+        //   message: "El equipo no puede tener más de 3 cartas.", // Mensaje de error
+        // },
+      },
+    ],
   },
   { timestamps: true },
 );
 
-userSchema.method.comparePassword = async function comparePassword(password) {
+userSchema.methods.comparePassword = async function comparePassword(password) {
   return await bcrypt.compare(password, this.password);
 };
 
@@ -25,6 +36,7 @@ userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, 8);
   next();
 });
+
 userSchema.pre("insertMany", async function (next, users) {
   for (const user of users) {
     user.password = await bcrypt.hash(user.password, 8);
@@ -32,7 +44,7 @@ userSchema.pre("insertMany", async function (next, users) {
   next();
 });
 
-userSchema.method.toJSON = function () {
+userSchema.methods.toJSON = function () {
   const user = this.toObject();
   user.id = user._id.toString();
   delete user.password;
@@ -43,4 +55,3 @@ userSchema.method.toJSON = function () {
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
-// Crear esquema y modelo User...

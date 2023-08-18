@@ -1,11 +1,11 @@
 require("dotenv").config();
-const path = require("path");
-const methodOverride = require("method-override");
 const express = require("express");
 const cors = require("cors");
+const methodOverride = require("method-override");
+const path = require("path");
 
-const sessions = require("./sessions");
 const routes = require("./routes");
+const sessions = require("./sessions");
 const passport = require("./passport");
 
 const APP_PORT = process.env.APP_PORT || 3000;
@@ -18,9 +18,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
+routes(app);
 sessions(app);
 passport(app);
-routes(app);
 
 app.listen(APP_PORT, () => {
   console.log(`\n[Express] Servidor corriendo en el puerto ${APP_PORT}.`);

@@ -7,7 +7,7 @@ router.get("/", cardsController.index);
 // router.get("/:id", userController.show);
 // router.post("/", userController.store);
 // router.get("/editar/:id", userController.edit);
-// router.patch("/:id", userController.update);
+// router.patch("/:id", cardsController.update);
 // router.delete("/:id", userController.destroy);
 
 module.exports = router;
