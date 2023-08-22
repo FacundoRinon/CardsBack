@@ -13,8 +13,9 @@ router.use(checkJwt({ secret: process.env.SESSION_SECRET, algorithms: ["HS256"] 
 // router.get("/crear", userController.create);
 router.get("/:id", userController.show);
 // router.get("/editar/:id", userController.edit);
-// router.patch("/:id", userController.update);
+router.patch("/", userController.update);
 router.patch("/:id", userController.updateTeam);
+router.put("/:id", userController.updateUnlocked);
 // router.delete("/:id", userController.destroy);
 
 module.exports = router;
