@@ -8,6 +8,9 @@ module.exports = [
     character: `${imageURL}/Itadori.webp`,
     background: `${imageURL}/jujutsuBackground.jpg`,
     ability: "Divergent fist",
+    intelligence: 4,
+    physicalPower: 10,
+    cursedPower: 7,
   },
   {
     name: "Megumi Fushiguro",
@@ -16,6 +19,9 @@ module.exports = [
     character: `${imageURL}/fushiguroChar.webp`,
     background: `${imageURL}/jujutsuBackground.jpg`,
     ability: "Shadow Technique of Ten Types",
+    intelligence: 10,
+    physicalPower: 8,
+    cursedPower: 9,
   },
   {
     name: "Nobara Kugisaki",
@@ -24,6 +30,9 @@ module.exports = [
     character: `${imageURL}/nobaraChar.webp`,
     background: `${imageURL}/jujutsuBackground.jpg`,
     ability: "Voodoo Doll Technique",
+    intelligence: 6,
+    physicalPower: 5,
+    cursedPower: 7,
   },
   {
     name: "Satoru Gojo",
@@ -32,6 +41,9 @@ module.exports = [
     character: `${imageURL}/gojoChar.webp`,
     background: `${imageURL}/jujutsuBackground.jpg`,
     ability: "Unlimited Curse Technique",
+    intelligence: 10,
+    physicalPower: 10,
+    cursedPower: 10,
   },
   {
     name: "Yuta Okkotsu",
@@ -40,6 +52,9 @@ module.exports = [
     character: `${imageURL}/yutaChar.webp`,
     background: `${imageURL}/jujutsuBackground.jpg`,
     ability: "Mimicry",
+    intelligence: 7,
+    physicalPower: 8,
+    cursedPower: 10,
   },
   {
     name: "Toge Inumaki",
@@ -48,6 +63,9 @@ module.exports = [
     character: `${imageURL}/inumakiChar.webp`,
     background: `${imageURL}/jujutsuBackground.jpg`,
     ability: "Cursed Speech Technique",
+    intelligence: 6,
+    physicalPower: 9,
+    cursedPower: 8,
   },
   {
     name: "Panda",
@@ -56,6 +74,9 @@ module.exports = [
     character: `${imageURL}/pandaChar.webp`,
     background: `${imageURL}/jujutsuBackground.jpg`,
     ability: "Three inner cores",
+    intelligence: 8,
+    physicalPower: 8,
+    cursedPower: 9,
   },
   {
     name: "Maki Zenin",
@@ -64,6 +85,9 @@ module.exports = [
     character: `${imageURL}/makiChar.webp`,
     background: `${imageURL}/jujutsuBackground.jpg`,
     ability: "Combat master",
+    intelligence: 7,
+    physicalPower: 10,
+    cursedPower: 0,
   },
   {
     name: "Kento Nanami",
@@ -72,6 +96,9 @@ module.exports = [
     character: `${imageURL}/nanamiChar.webp`,
     background: `${imageURL}/jujutsuBackground.jpg`,
     ability: "Proportion Technique",
+    intelligence: 10,
+    physicalPower: 7,
+    cursedPower: 7,
   },
   {
     name: "Aoi Todo",
@@ -80,6 +107,9 @@ module.exports = [
     character: `${imageURL}/todoChar.webp`,
     background: `${imageURL}/jujutsuBackground.jpg`,
     ability: "Boogie Woogie Technique",
+    intelligence: 10,
+    physicalPower: 9,
+    cursedPower: 10,
   },
   {
     name: "Kenjaku",
@@ -88,6 +118,9 @@ module.exports = [
     character: `${imageURL}/kenjakuChar.webp`,
     background: `${imageURL}/badguysBackground.png`,
     ability: "Unknown",
+    intelligence: 10,
+    physicalPower: 10,
+    cursedPower: 10,
   },
   {
     name: "Junpei Yoshino",
@@ -96,6 +129,9 @@ module.exports = [
     character: `${imageURL}/yoshinoChar.webp`,
     background: `${imageURL}/badguysBackground.png`,
     ability: "Shikigamis",
+    intelligence: 7,
+    physicalPower: 2,
+    cursedPower: 8,
   },
   {
     name: "Mahito",
@@ -104,6 +140,9 @@ module.exports = [
     character: `${imageURL}/mahitoChar.webp`,
     background: `${imageURL}/badguysBackground.png`,
     ability: "Free Mutation Technique",
+    intelligence: 6,
+    physicalPower: 6,
+    cursedPower: 9,
   },
   {
     name: "Jogo",
@@ -112,6 +151,9 @@ module.exports = [
     character: `${imageURL}/jogoChar.webp`,
     background: `${imageURL}/badguysBackground.png`,
     ability: "Volcanic Curse Technique",
+    intelligence: 5,
+    physicalPower: 7,
+    cursedPower: 9,
   },
   {
     name: "Hanami",
@@ -120,6 +162,9 @@ module.exports = [
     character: `${imageURL}/hanamiChar.webp`,
     background: `${imageURL}/badguysBackground.png`,
     ability: "Plant Handling Technique",
+    intelligence: 4,
+    physicalPower: 10,
+    cursedPower: 9,
   },
   {
     name: "Esou",
@@ -128,6 +173,9 @@ module.exports = [
     character: `${imageURL}/esouChar.webp`,
     background: `${imageURL}/badguysBackground.png`,
     ability: "Extreme Corrosion Technique",
+    intelligence: 6,
+    physicalPower: 8,
+    cursedPower: 8,
   },
   {
     name: "Kechizu",
@@ -136,6 +184,9 @@ module.exports = [
     character: `${imageURL}/kechizuChar.webp`,
     background: `${imageURL}/badguysBackground.png`,
     ability: "Extreme Corrosion Technique",
+    intelligence: 6,
+    physicalPower: 8,
+    cursedPower: 8,
   },
   {
     name: "Choso",
@@ -144,5 +195,8 @@ module.exports = [
     character: `${imageURL}/chosoChar.webp`,
     background: `${imageURL}/badguysBackground.png`,
     ability: "Blood Manipulation Technique",
+    intelligence: 7,
+    physicalPower: 9,
+    cursedPower: 8,
   },
 ];

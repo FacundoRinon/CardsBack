@@ -11,18 +11,10 @@ const userSchema = new Schema(
     avatar: { type: String, required: true },
     password: { type: String, required: true },
     unlockedCards: [{ type: Schema.Types.ObjectId, ref: "Card" }],
-    team: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Card",
-        // validate: {
-        //   validator: function (array) {
-        //     return array.length <= 3; // Define la condición de validación
-        //   },
-        //   message: "El equipo no puede tener más de 3 cartas.", // Mensaje de error
-        // },
-      },
-    ],
+    team: [{ type: Schema.Types.ObjectId, ref: "Card" }],
+    intelligencePoints: { type: Number },
+    physicalPower: { type: Number },
+    cursedPower: { type: Number },
   },
   { timestamps: true },
 );

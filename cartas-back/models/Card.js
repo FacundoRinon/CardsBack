@@ -8,6 +8,10 @@ const cardSchema = new Schema(
     character: { type: String, required: true },
     background: { type: String, required: true },
     ability: { type: String, required: true },
+    intelligence: { type: Number, required: true },
+    physicalPower: { type: Number, required: true },
+    cursedPower: { type: Number, required: true },
+    onTeam: { type: Boolean, default: false },
   },
   { timestamps: true },
 );

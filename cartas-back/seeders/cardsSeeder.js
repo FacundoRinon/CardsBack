@@ -9,6 +9,9 @@ module.exports = async () => {
       character: card.character,
       background: card.background,
       ability: card.ability,
+      intelligence: card.intelligence,
+      physicalPower: card.physicalPower,
+      cursedPower: card.cursedPower,
     });
     await character.save();
   }

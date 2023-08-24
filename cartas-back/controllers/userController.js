@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const Card = require("../models/Card");
 const jwt = require("jsonwebtoken");
 const formidable = require("formidable");
 const path = require("path");
@@ -17,7 +18,6 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY
 });
 
 async function login(req, res) {
-  console.log(req.body);
   const isEmailImput = isEmail(req.body.username);
 
   let user;
@@ -47,6 +47,9 @@ async function login(req, res) {
       avatar: user.avatar,
       unlockedCards: user.unlockedCards,
       team: user.team,
+      intelligencePoints: user.intelligencePoints,
+      physicalPower: user.physicalPower,
+      cursedPower: user.cursedPower,
     });
   }
 }
@@ -75,6 +78,9 @@ async function store(req, res) {
         email: req.body.email,
         password: req.body.password,
         avatar: "nullAvatar.png",
+        intelligencePoints: 0,
+        physicalPower: 0,
+        cursedPower: 0,
       });
       await user.save();
       const token = jwt.sign(
@@ -93,6 +99,9 @@ async function store(req, res) {
         avatar: user.avatar,
         unlockedCards: user.unlockedCards,
         team: user.team,
+        intelligencePoints: user.intelligencePoints,
+        physicalPower: user.physicalPower,
+        cursedPower: user.cursedPower,
       });
     }
   } else {
@@ -159,14 +168,18 @@ async function update(req, res) {
 async function updateTeam(req, res) {
   try {
     const user = await User.findById(req.auth.id);
+    const card = await Card.findById(req.params.id);
     if (user.team.includes(req.params.id)) {
       user.team.pull(req.params.id);
+      card.onTeam = false;
     } else if (user.team.length >= 3) {
       return res.json("teamComplete");
     } else {
       user.team.push(req.params.id);
+      card.onTeam = true;
     }
     await user.save();
+    await card.save();
     res.status(200).json({ message: "toggle team succesfull" });
   } catch (error) {
     console.log(error);
