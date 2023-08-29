@@ -5,6 +5,7 @@ const formidable = require("formidable");
 const path = require("path");
 const bcrypt = require("bcryptjs");
 const fs = require("fs");
+const cron = require("node-cron");
 const { createClient } = require("@supabase/supabase-js");
 
 const { isEmail } = require("validator");
@@ -15,6 +16,30 @@ if (!process.env.SUPABASE_URL) {
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY, {
   auth: { persistSession: false },
+});
+
+cron.schedule("*/10 * * * *", async () => {
+  const users = await User.find().populate("team");
+
+  for (const user of users) {
+    let intelligencePointsToAdd = 0;
+    let physicalPowerToAdd = 0;
+    let cursedPowerToAdd = 0;
+
+    for (const card of user.team) {
+      // const timeInMinutes = (Date.now() - card.onTeam) / (1000 * 60);
+      intelligencePointsToAdd += card.intelligence;
+      physicalPowerToAdd += card.physicalPower;
+      cursedPowerToAdd += card.cursedPower;
+    }
+
+    user.intelligencePoints += intelligencePointsToAdd;
+    user.physicalPower += physicalPowerToAdd;
+    user.cursedPower += cursedPowerToAdd;
+
+    await user.save();
+    console.log("Se guardaron puntos");
+  }
 });
 
 async function login(req, res) {
@@ -47,9 +72,10 @@ async function login(req, res) {
       avatar: user.avatar,
       unlockedCards: user.unlockedCards,
       team: user.team,
-      intelligencePoints: user.intelligencePoints,
       physicalPower: user.physicalPower,
+      intelligencePoints: user.intelligencePoints,
       cursedPower: user.cursedPower,
+      pointsPerHour: user.pointsPerHour,
     });
   }
 }
@@ -171,12 +197,12 @@ async function updateTeam(req, res) {
     const card = await Card.findById(req.params.id);
     if (user.team.includes(req.params.id)) {
       user.team.pull(req.params.id);
-      card.onTeam = false;
+      card.onTeam = null;
     } else if (user.team.length >= 3) {
       return res.json("teamComplete");
     } else {
       user.team.push(req.params.id);
-      card.onTeam = true;
+      card.onTeam = new Date();
     }
     await user.save();
     await card.save();

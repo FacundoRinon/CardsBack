@@ -11,7 +11,8 @@ const cardSchema = new Schema(
     intelligence: { type: Number, required: true },
     physicalPower: { type: Number, required: true },
     cursedPower: { type: Number, required: true },
-    onTeam: { type: Boolean, default: false },
+    onTeam: { type: Date, default: null },
+    pointsPerHour: { type: Number, default: 1 },
   },
   { timestamps: true },
 );

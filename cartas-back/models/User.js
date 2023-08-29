@@ -12,9 +12,9 @@ const userSchema = new Schema(
     password: { type: String, required: true },
     unlockedCards: [{ type: Schema.Types.ObjectId, ref: "Card" }],
     team: [{ type: Schema.Types.ObjectId, ref: "Card" }],
-    intelligencePoints: { type: Number },
-    physicalPower: { type: Number },
-    cursedPower: { type: Number },
+    intelligencePoints: { type: Number, default: 0 },
+    physicalPower: { type: Number, default: 0 },
+    cursedPower: { type: Number, default: 0 },
   },
   { timestamps: true },
 );
