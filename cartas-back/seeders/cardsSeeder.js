@@ -12,6 +12,7 @@ module.exports = async () => {
       intelligence: card.intelligence,
       physicalPower: card.physicalPower,
       cursedPower: card.cursedPower,
+      cost: card.cost,
     });
     await character.save();
   }

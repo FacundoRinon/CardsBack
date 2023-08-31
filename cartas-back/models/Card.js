@@ -13,6 +13,7 @@ const cardSchema = new Schema(
     cursedPower: { type: Number, required: true },
     onTeam: { type: Date, default: null },
     pointsPerHour: { type: Number, default: 1 },
+    cost: { type: [Number], required: true },
   },
   { timestamps: true },
 );

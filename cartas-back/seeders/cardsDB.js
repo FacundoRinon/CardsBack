@@ -11,6 +11,7 @@ module.exports = [
     intelligence: 4,
     physicalPower: 10,
     cursedPower: 7,
+    cost: [0, 0, 0],
   },
   {
     name: "Megumi Fushiguro",
@@ -22,6 +23,7 @@ module.exports = [
     intelligence: 10,
     physicalPower: 8,
     cursedPower: 9,
+    cost: [4, 10, 7],
   },
   {
     name: "Nobara Kugisaki",
@@ -33,6 +35,7 @@ module.exports = [
     intelligence: 6,
     physicalPower: 5,
     cursedPower: 7,
+    cost: [4, 10, 7],
   },
   {
     name: "Satoru Gojo",
@@ -44,6 +47,7 @@ module.exports = [
     intelligence: 10,
     physicalPower: 10,
     cursedPower: 10,
+    cost: [200, 200, 200],
   },
   {
     name: "Yuta Okkotsu",
@@ -55,6 +59,7 @@ module.exports = [
     intelligence: 7,
     physicalPower: 8,
     cursedPower: 10,
+    cost: [100, 100, 100],
   },
   {
     name: "Toge Inumaki",
@@ -66,6 +71,7 @@ module.exports = [
     intelligence: 6,
     physicalPower: 9,
     cursedPower: 8,
+    cost: [4, 10, 7],
   },
   {
     name: "Panda",
@@ -77,6 +83,7 @@ module.exports = [
     intelligence: 8,
     physicalPower: 8,
     cursedPower: 9,
+    cost: [50, 50, 60],
   },
   {
     name: "Maki Zenin",
@@ -88,6 +95,7 @@ module.exports = [
     intelligence: 7,
     physicalPower: 10,
     cursedPower: 0,
+    cost: [0, 0, 0],
   },
   {
     name: "Kento Nanami",
@@ -99,6 +107,7 @@ module.exports = [
     intelligence: 10,
     physicalPower: 7,
     cursedPower: 7,
+    cost: [20, 15, 15],
   },
   {
     name: "Aoi Todo",
@@ -110,6 +119,7 @@ module.exports = [
     intelligence: 10,
     physicalPower: 9,
     cursedPower: 10,
+    cost: [100, 90, 100],
   },
   {
     name: "Kenjaku",
@@ -121,6 +131,7 @@ module.exports = [
     intelligence: 10,
     physicalPower: 10,
     cursedPower: 10,
+    cost: [150, 150, 150],
   },
   {
     name: "Junpei Yoshino",
@@ -132,6 +143,7 @@ module.exports = [
     intelligence: 7,
     physicalPower: 2,
     cursedPower: 8,
+    cost: [13, 11, 17],
   },
   {
     name: "Mahito",
@@ -143,6 +155,7 @@ module.exports = [
     intelligence: 6,
     physicalPower: 6,
     cursedPower: 9,
+    cost: [50, 70, 100],
   },
   {
     name: "Jogo",
@@ -154,6 +167,7 @@ module.exports = [
     intelligence: 5,
     physicalPower: 7,
     cursedPower: 9,
+    cost: [10, 20, 70],
   },
   {
     name: "Hanami",
@@ -165,6 +179,7 @@ module.exports = [
     intelligence: 4,
     physicalPower: 10,
     cursedPower: 9,
+    cost: [50, 100, 70],
   },
   {
     name: "Esou",
@@ -176,6 +191,7 @@ module.exports = [
     intelligence: 6,
     physicalPower: 8,
     cursedPower: 8,
+    cost: [20, 34, 40],
   },
   {
     name: "Kechizu",
@@ -187,6 +203,7 @@ module.exports = [
     intelligence: 6,
     physicalPower: 8,
     cursedPower: 8,
+    cost: [10, 9, 7],
   },
   {
     name: "Choso",
@@ -198,5 +215,90 @@ module.exports = [
     intelligence: 7,
     physicalPower: 9,
     cursedPower: 8,
+    cost: [9, 10, 7],
+  },
+  {
+    name: "Sukuna",
+    description:
+      "His past appearance describes him as a four-armed, two-faced demon. Currently, he looks like his vessel (Yuji Itadori), but with upturned hair in shades similar to pale pink and with lines/marks, on his forehead, nose, cheeks, and body. He also has a second set of eyes, below his normal ones. Sukuna also has two lines that start at her clavicle and run down to her hips, one encircling her neck and circles on both shoulders.",
+    character: `${imageURL}/sukunaChar.webp`,
+    background: `${imageURL}/badguysBackground.png`,
+    ability: "Undo",
+    intelligence: 10,
+    physicalPower: 10,
+    cursedPower: 10,
+    cost: [200, 200, 200],
+  },
+  {
+    name: "Kasumi Miwa",
+    description:
+      "Miwa is a very kind, considerate and hard-working young lady. There are times when she can be innocent and clueless, even her classmates often play pranks on her. She describes herself as trustworthy, normal, and nothing special.",
+    character: `${imageURL}/miwaChar.webp`,
+    background: `${imageURL}/jujutsuBackground.jpg`,
+    ability: "New Shadow Style Technique",
+    intelligence: 7,
+    physicalPower: 5,
+    cursedPower: 5,
+    cost: [40, 30, 27],
+  },
+  {
+    name: "Momo Nishimiya",
+    description:
+      "At first glance, Momo appears to be a defenseless girl who is easily frightened by aggressive actions. She is an intelligent girl who quickly resolves situations, such as when Miwa was worried that Todo was not going to want to follow the plan, she quickly advised that he would be fine and that everyone could focus on the plan while Todo was fighting with the Tokyo group.",
+    character: `${imageURL}/momoChar.webp`,
+    background: `${imageURL}/jujutsuBackground.jpg`,
+    ability: "Artifact Manipulation Technique",
+    intelligence: 8,
+    physicalPower: 6,
+    cursedPower: 7,
+    cost: [90, 50, 65],
+  },
+  {
+    name: "Mai Zenin",
+    description:
+      "Despite addressing others in a delicate and gentle tone, she was quite blunt and sarcastic with her words. Most of the time he displayed a provocative attitude. Also, she proved not to be very passionate when it comes to the use of jujutsu and even confessed that she preferred to use her cursed energy in a simple way. Although he tried to be nice when he first met someone, he always ended up showing a rude side. For example, he was nice to Megumi and Nobara, however, he continued to talk disparagingly about Itadori's death.",
+    character: `${imageURL}/maiChar.webp`,
+    background: `${imageURL}/jujutsuBackground.jpg`,
+    ability: "Cursed tools",
+    intelligence: 9,
+    physicalPower: 5,
+    cursedPower: 5,
+    cost: [40, 30, 20],
+  },
+  {
+    name: "Kokichi Muta",
+    description:
+      "Kokichi was an intelligent, determined and methodical person. He longed to have a normal body and always felt repudiation at the fact that he had been subjected to the Heavenly Curse. He confessed that if he could exchange all his power for a normal body, he would do it without hesitation.",
+    character: `${imageURL}/mutaChar.webp`,
+    background: `${imageURL}/jujutsuBackground.jpg`,
+    ability: "Puppet Manipulation Technique",
+    intelligence: 9,
+    physicalPower: 7,
+    cursedPower: 9,
+    cost: [60, 50, 55],
+  },
+  {
+    name: "Noritoshi Kamo",
+    description:
+      "Noritoshi is serious, courteous and tends to appreciate people who belong to one of the three clans and also show potential, as is the case with Megumi Fushiguro. Being a third year, during the exchange he was seen as the leader and as someone trusted by the director, Yoshinobu Gakuganji, who entrusted him with the plan so that they could kill Yuji Itadori.",
+    character: `${imageURL}/kamoChar.webp`,
+    background: `${imageURL}/jujutsuBackground.jpg`,
+    ability: "Blood Manipulation Technique",
+    intelligence: 9,
+    physicalPower: 6,
+    cursedPower: 8,
+    cost: [70, 70, 70],
+  },
+  {
+    name: "Masamichi Yaga",
+    description:
+      "He proved to be a serious man and dedicated to his work. He had a strong sense of responsibility to all the students, teachers, and assistants of the Tokyo Metropolitan Magic Technical College. In addition, he was deeply proud of the work he did. He was in charge of interviewing everyone who applied to the school and he used to be quite meticulous with his questions.",
+    character: `${imageURL}/yagaChar.webp`,
+    background: `${imageURL}/jujutsuBackground.jpg`,
+    ability: "Puppet Manipulation Technique.",
+    intelligence: 10,
+    physicalPower: 8,
+    cursedPower: 10,
+    cost: [90, 90, 80],
   },
 ];

@@ -84,7 +84,26 @@ async function login(req, res) {
 async function index(req, res) {}
 
 // Display the specified resource.
-async function show(req, res) {}
+async function show(req, res) {
+  const user = await User.findById(req.params.id).populate("team").populate("unlockedCards");
+  console.log("Actualiza user");
+  const token = jwt.sign({ id: user._id }, process.env.SESSION_SECRET);
+  return res.json({
+    token,
+    id: user._id,
+    firstname: user.firstname,
+    lastname: user.lastname,
+    username: user.username,
+    email: user.email,
+    avatar: user.avatar,
+    unlockedCards: user.unlockedCards,
+    team: user.team,
+    physicalPower: user.physicalPower,
+    intelligencePoints: user.intelligencePoints,
+    cursedPower: user.cursedPower,
+    pointsPerHour: user.pointsPerHour,
+  });
+}
 
 // Show the form for creating a new resource
 async function create(req, res) {}
@@ -215,9 +234,20 @@ async function updateTeam(req, res) {
 async function updateUnlocked(req, res) {
   try {
     const user = await User.findById(req.auth.id);
+    const card = await Card.findById(req.params.id);
+
     if (user.unlockedCards.includes(req.params.id)) {
       return res.json("alreadyUnlocked");
+    } else if (
+      user.physicalPower < card.cost[0] ||
+      user.intelligencePoints < card.cost[1] ||
+      user.cursedPower < card.cost[2]
+    ) {
+      return res.json("insuficentPoints");
     } else {
+      user.physicalPower -= card.cost[0];
+      user.intelligencePoints -= card.cost[1];
+      user.cursedPower -= card.cost[2];
       user.unlockedCards.push(req.params.id);
     }
     await user.save();
