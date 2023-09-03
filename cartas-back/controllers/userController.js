@@ -27,7 +27,6 @@ cron.schedule("*/10 * * * *", async () => {
     let cursedPowerToAdd = 0;
 
     for (const card of user.team) {
-      // const timeInMinutes = (Date.now() - card.onTeam) / (1000 * 60);
       intelligencePointsToAdd += card.intelligence;
       physicalPowerToAdd += card.physicalPower;
       cursedPowerToAdd += card.cursedPower;
@@ -38,7 +37,6 @@ cron.schedule("*/10 * * * *", async () => {
     user.cursedPower += cursedPowerToAdd;
 
     await user.save();
-    console.log("Se guardaron puntos");
   }
 });
 
