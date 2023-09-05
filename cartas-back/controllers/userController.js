@@ -60,7 +60,7 @@ async function login(req, res) {
     return res.json("Credenciales invalidas 2");
   } else {
     const token = jwt.sign({ id: user._id }, process.env.SESSION_SECRET);
-    return res.json({
+    const response = {
       token,
       id: user._id,
       firstname: user.firstname,
@@ -74,7 +74,11 @@ async function login(req, res) {
       intelligencePoints: user.intelligencePoints,
       cursedPower: user.cursedPower,
       pointsPerHour: user.pointsPerHour,
-    });
+    };
+    if (user.username === "InvitedUser") {
+      response.newUser = true;
+    }
+    return res.json(response);
   }
 }
 
@@ -126,6 +130,7 @@ async function store(req, res) {
         cursedPower: 0,
       });
       await user.save();
+      const newUser = true;
       const token = jwt.sign(
         {
           id: user._id,
@@ -134,6 +139,7 @@ async function store(req, res) {
       );
       return res.json({
         token,
+        newUser,
         id: user._id,
         firstname: user.firstname,
         lastname: user.lastname,

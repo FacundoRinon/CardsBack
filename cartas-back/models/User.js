@@ -15,6 +15,7 @@ const userSchema = new Schema(
     intelligencePoints: { type: Number, default: 0 },
     physicalPower: { type: Number, default: 0 },
     cursedPower: { type: Number, default: 0 },
+    newUser: { type: Boolean, default: false },
   },
   { timestamps: true },
 );
