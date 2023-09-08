@@ -18,27 +18,27 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY
   auth: { persistSession: false },
 });
 
-cron.schedule("*/10 * * * *", async () => {
-  const users = await User.find().populate("team");
+// cron.schedule("*/10 * * * *", async () => {
+//   const users = await User.find().populate("team");
 
-  for (const user of users) {
-    let intelligencePointsToAdd = 0;
-    let physicalPowerToAdd = 0;
-    let cursedPowerToAdd = 0;
+//   for (const user of users) {
+//     let intelligencePointsToAdd = 0;
+//     let physicalPowerToAdd = 0;
+//     let cursedPowerToAdd = 0;
 
-    for (const card of user.team) {
-      intelligencePointsToAdd += card.intelligence;
-      physicalPowerToAdd += card.physicalPower;
-      cursedPowerToAdd += card.cursedPower;
-    }
+//     for (const card of user.team) {
+//       intelligencePointsToAdd += card.intelligence;
+//       physicalPowerToAdd += card.physicalPower;
+//       cursedPowerToAdd += card.cursedPower;
+//     }
 
-    user.intelligencePoints += intelligencePointsToAdd;
-    user.physicalPower += physicalPowerToAdd;
-    user.cursedPower += cursedPowerToAdd;
+//     user.intelligencePoints += intelligencePointsToAdd * 60;
+//     user.physicalPower += physicalPowerToAdd * 60;
+//     user.cursedPower += cursedPowerToAdd * 60;
 
-    await user.save();
-  }
-});
+//     await user.save();
+//   }
+// });
 
 async function login(req, res) {
   const isEmailImput = isEmail(req.body.username);
